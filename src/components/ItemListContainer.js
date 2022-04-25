@@ -1,10 +1,14 @@
 import React from 'react'
-import './StyleItemListContainer.css'
+import ItemCount from './ItemCount';
 
-const ItemListContainer = ({mensaje}) => {
+
+const ItemListContainer = ({ mensaje }) => {
   return (
-    <a className="mensaje">{mensaje}</a>
-  )
-}
+    <>
+      <a className="text-gray-900">{mensaje}</a>
+      <ItemCount stock="5" initial="1" />
+    </>
+  );
+};
 
 export default ItemListContainer
