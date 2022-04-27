@@ -14,7 +14,7 @@ const ItemList = () => {
         const getStorePromise = new Promise((resolve) => {
           setTimeout(() => {
             resolve( storeData)
-          }, 1000);
+          }, 2000);
         })
 
         getStorePromise.then(res => {
