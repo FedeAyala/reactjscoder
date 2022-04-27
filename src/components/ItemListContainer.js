@@ -1,13 +1,12 @@
 import React from 'react'
-import ItemCount from './ItemCount';
+import ItemList from './ItemList';
 
 
-const ItemListContainer = ({ mensaje }) => {
+const ItemListContainer = () => {
   return (
-    <>
-      <a className="text-gray-900">{mensaje}</a>
-      <ItemCount stock="5" initial="1" />
-    </>
+    <div className='grid place-items-center min-h-screen mt-2'>
+      <ItemList />
+    </div>
   );
 };
 

@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <NavBar />
       <header className="App-cont">
-        <ItemListContainer mensaje="Acá va a ir un Catálogo." />
+        <ItemListContainer />
       </header>
     </div>
   );
