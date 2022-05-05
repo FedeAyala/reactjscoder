@@ -1,31 +1,31 @@
-import React,{useEffect,useState} from 'react'
-import { storeData } from "../data/storeData"
-import ItemDetail from "./ItemDetail"
+import React, { useEffect, useState } from 'react'
+import { storeData } from '../data/storeData'
+import ItemDetail from './ItemDetail'
+import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
+  const { id } = useParams()
+  const [item, setItem] = useState([])
 
-    const[item , setItem] = useState([])
+  useEffect(() => {
+    getItem()
+  }, [])
 
-    useEffect(() => {
-        getItem()    
-    }, [])
-    
+  const getItem = () => {
+    const getItemPromise = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(storeData[id - 1]) /* Devuelvo uno para mostrar */
+      }, 2000)
+    })
 
-    const getItem =() =>{
-        const getItemPromise = new Promise((resolve) => {
-            setTimeout(() => {
-              resolve(storeData[0])/* Devuelvo uno para mostrar*/
-            }, 2000);
-          })
-  
-          getItemPromise.then(res => {
-            setItem(res)
-          })
-    }
+    getItemPromise.then((res) => {
+      setItem(res)
+    })
+  }
 
   return (
     <div>
-      <ItemDetail  item={item}/>
+      <ItemDetail item={item} />
     </div>
   )
 }

@@ -1,22 +1,27 @@
-import React from "react";
-import CartWidget from "./CartWidget";
+import React from 'react'
+import CartWidget from './CartWidget'
+import Category from './Category'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 bg-sky-200">
       <div className="flex-1">
-        <a className=" btn btn-ghost normal-case text-xl">Ta Tai Game Store</a>
+        <Link to={'/'} className=" btn btn-ghost normal-case text-xl">
+          Ta Tai Game Store
+        </Link>
       </div>
       <div className="flex-none">
+        <Category />
         <CartWidget />
         <div className="dropdown dropdown-end">
-          <label tabindex="0" className="btn btn-ghost btn-circle avatar">
+          <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
               <img src="https://api.lorem.space/image/face?hash=33791" />
             </div>
           </label>
           <ul
-            tabindex="0"
+            tabIndex="0"
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
@@ -35,7 +40,7 @@ const NavBar = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
