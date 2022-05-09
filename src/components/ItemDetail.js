@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from './ItemCount'
 
 const ItemDetail = ({ item }) => {
+  const [press, setPress] = useState()
+
+  const onAdd = () => {
+    setPress(true)
+  }
+
   return (
     <section>
       <div className="relative max-w-screen-xl mx-auto">
@@ -30,7 +36,13 @@ const ItemDetail = ({ item }) => {
               </p>
             </div>
 
-            <ItemCount stock={10} item={item} initial={1} />
+            <ItemCount
+              onAdd={onAdd}
+              stock={10}
+              item={item}
+              initial={1}
+              press={press}
+            />
           </div>
 
           <div className="lg:col-span-3">
