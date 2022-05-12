@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Item from './Item'
-import { storeData } from '../data/storeData'
+import { getItem } from '../data/storeData'
 import { useParams } from 'react-router-dom'
 
 const ItemList = () => {
@@ -8,24 +8,14 @@ const ItemList = () => {
   const { categoryId } = useParams()
 
   useEffect(() => {
-    getStore()
+    if (categoryId === undefined) {
+      getItem().then((resp) => setStore(resp))
+    } else {
+      getItem().then((resp) =>
+        setStore(resp.filter((product) => product.category === categoryId))
+      )
+    }
   }, [categoryId])
-
-  const getStore = () => {
-    const getStorePromise = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(storeData)
-      }, 2000)
-    })
-
-    getStorePromise.then((res) => {
-      if (categoryId === undefined) {
-        setStore(res)
-      } else {
-        setStore(res.filter((r) => r.category === categoryId))
-      }
-    })
-  }
 
   return (
     <div>
@@ -40,8 +30,8 @@ const ItemList = () => {
       )}
 
       <div className=" grid max-w-5xl gap-3 xs:col-span-2 md:grid-cols-3 lg:grid-cols-4">
-        {store.map((s) => (
-          <Item key={s.id} store={s} />
+        {store.map((product) => (
+          <Item key={product.id} store={product} />
         ))}
       </div>
     </div>

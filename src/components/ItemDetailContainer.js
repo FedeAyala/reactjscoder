@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { storeData } from '../data/storeData'
+import { getItem } from '../data/storeData'
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
 
@@ -8,20 +8,12 @@ const ItemDetailContainer = () => {
   const [item, setItem] = useState([])
 
   useEffect(() => {
-    getItem()
-  }, [])
-
-  const getItem = () => {
-    const getItemPromise = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(storeData[id - 1]) /* Devuelvo uno para mostrar */
-      }, 2000)
-    })
-
-    getItemPromise.then((res) => {
-      setItem(res)
-    })
-  }
+    if (id === undefined) {
+      getItem().then((resp) => setItem(resp))
+    } else {
+      getItem().then((resp) => setItem(resp[id - 1]))
+    }
+  }, [id])
 
   return (
     <div>

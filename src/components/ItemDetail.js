@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
 
 const ItemDetail = ({ item }) => {
-  const [press, setPress] = useState()
+  const { id, name, price, img, stock, description } = item
+  const [press, setPress] = useState(false)
 
-  const onAdd = () => {
-    setPress(true)
+  const onAdd = (count) => {
+    if (count >= 1) {
+      setPress(true)
+      alert(`Se agregaron ${count} ${item.name}`)
+    }
   }
 
   return (
@@ -13,7 +18,7 @@ const ItemDetail = ({ item }) => {
       <div className="relative max-w-screen-xl mx-auto">
         <div>
           <h1 className="pb-2 text-2xl text-gray-900 font-bold lg:text-3xl">
-            {item.name}
+            {name}
           </h1>
         </div>
 
@@ -23,7 +28,7 @@ const ItemDetail = ({ item }) => {
               <img
                 width="500px"
                 alt=""
-                src={item.img}
+                src={img}
                 className="rounded-xl object-cover"
               />
             </div>
@@ -31,23 +36,39 @@ const ItemDetail = ({ item }) => {
 
           <div className="lg:top-0 lg:sticky">
             <div className="p-4 bg-gray-100 border rounded">
-              <p className="text-gray-700 text-xl font-bold">
-                Precio ${item.price}
-              </p>
+              <p className="text-gray-700 text-xl font-bold">Precio ${price}</p>
             </div>
 
-            <ItemCount
-              onAdd={onAdd}
-              stock={10}
-              item={item}
-              initial={1}
-              press={press}
-            />
+            {press ? (
+              <div className="flex justify-center gap-4 my-2">
+                <Link
+                  className="my-2 w-50 text-sm bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                  to={'/cart'}
+                >
+                  Ir al Carrito
+                </Link>
+                <Link
+                  className="my-2 w-50 text-sm bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                  to={'/'}
+                >
+                  Volver atrás
+                </Link>
+              </div>
+            ) : (
+              <ItemCount
+                onAdd={onAdd}
+                stock={stock}
+                id={id}
+                item={item}
+                initial={1}
+                press={press}
+              />
+            )}
           </div>
 
           <div className="lg:col-span-3">
             <div className="prose max-w-none">
-              <p className="text-gray-900 text-sm">{item.description}</p>
+              <p className="text-gray-900 text-sm">{description}</p>
             </div>
           </div>
         </div>
