@@ -2,10 +2,11 @@ import React from 'react'
 import CartWidget from './CartWidget'
 import Category from './Category'
 import { Link } from 'react-router-dom'
+import './colores.css'
 
 const NavBar = () => {
   return (
-    <div className="navbar bg-base-100 bg-sky-200">
+    <div className="navbar bg-base-100 text-white">
       <div className="flex-1">
         <Link to={'/'} className=" btn btn-ghost normal-case text-xl">
           Ta Tai Game Store

@@ -3,7 +3,7 @@ import ItemList from './ItemList'
 
 const ItemListContainer = () => {
   return (
-    <div className="grid place-items-center  mt-2">
+    <div className="grid place-items-center py-2 mt-2">
       <ItemList />
     </div>
   )

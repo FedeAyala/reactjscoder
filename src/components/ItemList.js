@@ -29,7 +29,7 @@ const ItemList = () => {
         </h1>
       )}
 
-      <div className=" grid max-w-5xl gap-3 xs:col-span-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className=" grid max-w-5xl gap-4 xs:col-span-2 md:grid-cols-3 lg:grid-cols-4">
         {store.map((product) => (
           <Item key={product.id} store={product} />
         ))}

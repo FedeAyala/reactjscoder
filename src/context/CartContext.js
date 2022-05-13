@@ -43,11 +43,29 @@ const CartContextProvider = ({ children }) => {
 
   const deleteCart = () => setCart([])
 
-  console.log(cart)
+  const countItem = () => {
+    let iTotal = 0
+    cart.forEach((item) => (iTotal += item.quantity))
+    return iTotal
+  }
+
+  const countPrice = () => {
+    let pTotal = 0
+    cart.forEach((item) => (pTotal += item.quantity * item.price))
+    return pTotal
+  }
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, deleteFromCart, deleteCart, setCart }}
+      value={{
+        cart,
+        addToCart,
+        deleteFromCart,
+        deleteCart,
+        setCart,
+        countItem,
+        countPrice,
+      }}
     >
       {children}
     </CartContext.Provider>

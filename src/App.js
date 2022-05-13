@@ -2,10 +2,11 @@ import './App.css'
 import NavBar from './components/NavBar'
 import ItemListContainer from './components/ItemListContainer.js'
 import ItemDetailContainer from './components/ItemDetailContainer.js'
-import Cart from './components/Cart'
 import { Route, Routes } from 'react-router-dom'
 import CartContextProvider from './context/CartContext'
 import AppContextProvider from './context/AppContext'
+import CartListContainer from './components/CartListContainer'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -24,9 +25,10 @@ function App() {
                 path="/category/:categoryId"
                 element={<ItemListContainer />}
               />
-              <Route path="/cart" element={<Cart />} />
+              <Route path="/cart" element={<CartListContainer />} />
             </Routes>
           </header>
+          <Footer />
         </CartContextProvider>
       </AppContextProvider>
     </div>

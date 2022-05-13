@@ -23,8 +23,6 @@ const ItemCount = ({ stock, initial, item, onAdd, id }) => {
   const handleClick = (id, count) => {
     const findProduct = products.find((product) => product.id === id)
 
-    console.log(findProduct)
-
     if (!findProduct) {
       alert('Error en la base de datos')
       return
@@ -35,8 +33,8 @@ const ItemCount = ({ stock, initial, item, onAdd, id }) => {
   }
 
   return (
-    <div className="bg-white rounded shadow-md shadow-blue-400/40 w-60">
-      <div className="text-gray-900 mt-1 ">{item.name}</div>
+    <div className="bg-white rounded shadow-md shadow-red-400/40 w-60 mx-auto">
+      <div className="text-gray-900 mt-1 ">${item.price}</div>
       <div className="flex justify-center gap-4 my-2">
         <button
           onClick={resHandler}
@@ -58,7 +56,7 @@ const ItemCount = ({ stock, initial, item, onAdd, id }) => {
         onClick={() => {
           handleClick(id, count)
         }}
-        className="mb-2 w-50 text-sm bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+        className="mb-2 w-50 text-sm bg-error hover:bg-red-200 text-white hover:text-gray-800 font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-300 rounded"
       >
         Añadir al Carrito
       </button>
