@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { getItem } from '../data/storeData'
+import { getProductos } from '../components/firebase/firebaseCliente'
 
 const AppContext = createContext()
 
@@ -9,7 +9,7 @@ const AppContextProvider = ({ children }) => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    getItem().then((resp) => setProducts(resp))
+    getProductos().then((resp) => setProducts(resp))
   })
 
   return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getItem } from '../data/storeData'
+import { getProductos } from './firebase/firebaseCliente'
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
 
@@ -8,12 +8,13 @@ const ItemDetailContainer = () => {
   const [item, setItem] = useState([])
 
   useEffect(() => {
-    if (id === undefined) {
-      getItem().then((resp) => setItem(resp))
-    } else {
-      getItem().then((resp) => setItem(resp[id - 1]))
-    }
-  }, [id])
+    getProductos().then((prods) => {
+      const prodSelected = prods.find((item) => {
+        return item.id === id
+      })
+      setItem(prodSelected)
+    })
+  }, [])
 
   return (
     <div>
