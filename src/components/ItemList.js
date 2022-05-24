@@ -11,6 +11,7 @@ const ItemList = () => {
     getProductos().then((prods) => {
       if (categoryId === undefined) {
         setStore(prods)
+        console.log(prods)
       } else {
         const arrayCateg = prods.filter(
           (item) => item.categoryId === categoryId

@@ -7,6 +7,8 @@ import CartContextProvider from './context/CartContext'
 import AppContextProvider from './context/AppContext'
 import CartListContainer from './components/CartListContainer'
 import Footer from './components/Footer'
+import Pago from './components/Pago'
+import Pagado from './components/Pagado'
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
                 element={<ItemListContainer />}
               />
               <Route path="/cart" element={<CartListContainer />} />
+              <Route path="/payment" element={<Pago />}></Route>
+              <Route path="/paidout" element={<Pagado />}></Route>
             </Routes>
           </header>
           <Footer />
