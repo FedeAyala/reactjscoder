@@ -4,15 +4,15 @@ import { useCartContext } from '../context/CartContext'
 import { grabarCompra } from './firebase/firebaseCliente'
 
 const Pago = () => {
-  const { itemsInCart, countPrice, deleteCart } = useCartContext()
+  const { cart, countPrice, deleteCart } = useCartContext()
 
   const armarCompra = (datosCliente) => {
-    const productosCompra = itemsInCart.map((element) => {
+    const productosCompra = cart.map((element) => {
       return {
         id: element.id,
         name: element.name,
         price: element.price,
-        quantity: element.itemCant,
+        quantity: element.quantity,
       }
     })
     const compra = {
@@ -20,9 +20,8 @@ const Pago = () => {
       productos: [...productosCompra],
       total: countPrice(),
     }
-    /* console.log(compra); */
     grabarCompra(compra)
-    console.log('Compra realizada!')
+    alert('Compra realizada!')
     deleteCart()
   }
 

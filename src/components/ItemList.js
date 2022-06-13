@@ -2,25 +2,29 @@ import React, { useEffect, useState } from 'react'
 import Item from './Item'
 import { getProductos } from './firebase/firebaseCliente'
 import { useParams } from 'react-router-dom'
+import SkeletonLoading from './SkeletonLoading'
 
 const ItemList = () => {
   const [store, setStore] = useState([])
   const { categoryId } = useParams()
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getProductos().then((prods) => {
       if (categoryId === undefined) {
         setStore(prods)
-        console.log(prods)
+        setLoading(false)
       } else {
         const arrayCateg = prods.filter(
           (item) => item.categoryId === categoryId
         )
-        console.log(arrayCateg)
         setStore(arrayCateg)
+        setLoading(false)
       }
     })
   }, [categoryId])
+
+  const slekeletonCards = Array(8).fill(0)
 
   return (
     <div>
@@ -35,9 +39,9 @@ const ItemList = () => {
       )}
 
       <div className=" grid max-w-5xl gap-4 xs:col-span-2 md:grid-cols-3 lg:grid-cols-4">
-        {store.map((product) => (
-          <Item key={product.id} store={product} />
-        ))}
+        {loading
+          ? slekeletonCards.map((i) => <SkeletonLoading key={i} />)
+          : store.map((product) => <Item key={product.id} store={product} />)}
       </div>
     </div>
   )
