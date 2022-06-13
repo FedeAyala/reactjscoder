@@ -4,6 +4,7 @@ import { useCartContext } from '../context/CartContext'
 import { grabarCompra } from './firebase/firebaseCliente'
 
 const Pago = () => {
+  const [order, setOrder] = useState()
   const { cart, countPrice, deleteCart } = useCartContext()
 
   const armarCompra = (datosCliente) => {
@@ -20,7 +21,7 @@ const Pago = () => {
       productos: [...productosCompra],
       total: countPrice(),
     }
-    grabarCompra(compra)
+    setOrder(grabarCompra(compra))
     alert('Compra realizada!')
     deleteCart()
   }
@@ -206,7 +207,7 @@ const Pago = () => {
                     </button>
                   </Link>
                   {countPrice() > 0 && (
-                    <Link to="/paidout">
+                    <Link to={`/paidout/${order}`}>
                       <button
                         type="button"
                         value="Submit"

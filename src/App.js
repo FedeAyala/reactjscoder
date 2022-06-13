@@ -29,7 +29,7 @@ function App() {
               />
               <Route path="/cart" element={<CartListContainer />} />
               <Route path="/payment" element={<Pago />}></Route>
-              <Route path="/paidout" element={<Pagado />}></Route>
+              <Route path="/paidout/:order" element={<Pagado />}></Route>
             </Routes>
           </header>
           <Footer />

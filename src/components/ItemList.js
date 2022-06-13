@@ -10,22 +10,21 @@ const ItemList = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getProductos().then((prods) => {
-      if (categoryId === undefined) {
-        setStore(prods)
-        setLoading(false)
-      } else {
-        const arrayCateg = prods.filter(
-          (item) => item.categoryId === categoryId
-        )
-        setStore(arrayCateg)
-        setLoading(false)
-      }
-    })
+    getProductos()
+      .then((prods) => {
+        if (categoryId === undefined) {
+          setStore(prods)
+        } else {
+          const arrayCateg = prods.filter(
+            (item) => item.categoryId === categoryId
+          )
+          setStore(arrayCateg)
+        }
+      })
+      .finally(() => setLoading(false))
   }, [categoryId])
 
-  const slekeletonCards = Array(8).fill(0)
-
+  const slekeletonCards = [1, 2, 3, 4, 5, 6]
   return (
     <div>
       {categoryId === undefined ? (

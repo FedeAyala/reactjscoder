@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import enviando from '../assets/enviando.webp'
 
 const Pagado = () => {
+  const { order } = useParams()
   return (
     <>
       <section className="flex text-gray-600 body-font justify-center">
@@ -20,8 +21,8 @@ const Pagado = () => {
                 Gracias por tu compra!!
               </h2>
               <p className="leading-relaxed text-base mb-10">
-                Tu envío será enviado al domicilio que indicaste dentro de las
-                próxmas 4 horas.
+                Tu envío, con orden {order} será enviado al domicilio que
+                indicaste dentro de las próximas 4 horas.
               </p>
               <Link to="/">
                 <button className="py-2 inline-flex items-center border-0 py-1 px-3 mx-5 mt-10 focus:outline-none bg-error  hover:bg-red-200 hover:text-gray-800 hover:border-red-300 border-red-500 border-b-4 text-white rounded text-base md:mt-0 text-lg font-bold">

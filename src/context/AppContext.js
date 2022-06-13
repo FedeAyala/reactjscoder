@@ -10,7 +10,7 @@ const AppContextProvider = ({ children }) => {
 
   useEffect(() => {
     getProductos().then((resp) => setProducts(resp))
-  })
+  }, [])
 
   return (
     <AppContext.Provider value={{ products }}>{children}</AppContext.Provider>
