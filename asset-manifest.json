@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/reactjscoder/static/css/main.765509d3.css",
-    "main.js": "/reactjscoder/static/js/main.507a050f.js",
-    "static/js/787.136e2985.chunk.js": "/reactjscoder/static/js/787.136e2985.chunk.js",
-    "static/media/empty.gif": "/reactjscoder/static/media/empty.86e16d00bb9b39d7874f.gif",
-    "static/media/enviando.webp": "/reactjscoder/static/media/enviando.b1d3c3671539522c6eab.webp",
-    "index.html": "/reactjscoder/index.html",
-    "main.765509d3.css.map": "/reactjscoder/static/css/main.765509d3.css.map",
-    "main.507a050f.js.map": "/reactjscoder/static/js/main.507a050f.js.map",
-    "787.136e2985.chunk.js.map": "/reactjscoder/static/js/787.136e2985.chunk.js.map"
+    "main.css": "/static/css/main.765509d3.css",
+    "main.js": "/static/js/main.b5a51836.js",
+    "static/js/787.136e2985.chunk.js": "/static/js/787.136e2985.chunk.js",
+    "static/media/empty.gif": "/static/media/empty.86e16d00bb9b39d7874f.gif",
+    "static/media/enviando.webp": "/static/media/enviando.b1d3c3671539522c6eab.webp",
+    "index.html": "/index.html",
+    "main.765509d3.css.map": "/static/css/main.765509d3.css.map",
+    "main.b5a51836.js.map": "/static/js/main.b5a51836.js.map",
+    "787.136e2985.chunk.js.map": "/static/js/787.136e2985.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.765509d3.css",
-    "static/js/main.507a050f.js"
+    "static/js/main.b5a51836.js"
   ]
 }
